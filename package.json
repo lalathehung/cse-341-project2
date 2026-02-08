@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/lalathehung/cse-341-project2/issues"
   },
-  "homepage": "https://github.com/lalathehung/cse-341-project2#readme"
+  "homepage": "https://github.com/lalathehung/cse-341-project2#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }
