@@ -1,0 +1,80 @@
+# =============================================
+# Project 2 - Book Library API (Local Testing)
+# Base URL: http://localhost:3000
+# =============================================
+
+### 1. Root - Welcome message
+GET http://localhost:3000/
+
+### 2. Swagger UI (open in browser)
+
+# ─────────────────────────────────────────────
+# BOOKS Collection (8 fields)
+# ─────────────────────────────────────────────
+
+### GET all books
+GET http://localhost:3000/books
+
+### GET book by ID (replace with real _id from GET all)
+GET http://localhost:3000/books/67a1234567890abcdef12345
+
+### POST create a new book (full 8 fields)
+POST http://localhost:3000/books HTTP/1.1
+content-type: application/json
+
+{
+  "title": "The Name of the Wind",
+  "author": "Patrick Rothfuss",
+  "isbn": "9780756404741",
+  "publishYear": 2007,
+  "genre": "Fantasy",
+  "pages": 662,
+  "price": 19.99,
+  "publisher": "DAW Books"
+}
+
+### POST - Missing required fields (should return 400)
+POST http://localhost:3000/books HTTP/1.1
+content-type: application/json
+
+{
+  "author": "Test Author",
+  "publishYear": 2020
+}
+
+### PUT update book (replace with real _id)
+PUT http://localhost:3000/books/67a1234567890abcdef12345 HTTP/1.1
+content-type: application/json
+
+{
+  "title": "The Name of the Wind (Updated)",
+  "price": 24.99
+}
+
+### DELETE book (replace with real _id)
+DELETE http://localhost:3000/books/67a1234567890abcdef12345
+
+# ─────────────────────────────────────────────
+# CATEGORIES Collection 
+# ─────────────────────────────────────────────
+
+### GET all categories
+GET http://localhost:3000/categories
+
+### POST create a new category
+POST http://localhost:3000/categories HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Mystery",
+  "description": "Stories involving crime, suspense, and puzzles",
+  "isActive": true
+}
+
+### POST - Missing required name (should return 400)
+POST http://localhost:3000/categories HTTP/1.1
+content-type: application/json
+
+{
+  "description": "No name provided"
+}

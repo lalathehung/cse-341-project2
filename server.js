@@ -29,7 +29,7 @@ mongodb.initDb((err) => {
         process.exit(1);
     } else {
         app.listen(port, () => {
-            console.log(`Running on port ${port}`);
+            console.log(`Database is listening and running on port ${port}`);
             console.log(`Swagger UI: http://localhost:${port}/api-docs`);
         });
     }
