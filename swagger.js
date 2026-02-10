@@ -7,7 +7,7 @@ const doc = {
    },
    host: 'cse-341-project2-7jea.onrender.com', // For Local Testing only; change to Render URL
    basePath: '/',
-   schemes: ['http']
+   schemes: ['https']
 };
 
 const outputFile = './swagger.json';
