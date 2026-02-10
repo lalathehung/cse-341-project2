@@ -5,7 +5,7 @@
     "description": "API for managing books and categories (W03 Project 2)",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse-341-project2-7jea.onrender.com",
   "basePath": "/",
   "schemes": [
     "http"
