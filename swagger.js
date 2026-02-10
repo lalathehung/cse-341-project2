@@ -7,7 +7,7 @@ const doc = {
    },
    host: 'localhost:3000', // For Local Testing only; change to Render URL
    basePath: '/',
-   schemes: ['https', 'http']
+   schemes: ['http']
 };
 
 const outputFile = './swagger.json';
