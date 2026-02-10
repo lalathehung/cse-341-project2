@@ -43,6 +43,9 @@
                 },
                 "description": {
                   "example": "any"
+                },
+                "isActive": {
+                  "example": "any"
                 }
               }
             }
@@ -271,6 +274,9 @@
                 },
                 "description": {
                   "example": "any"
+                },
+                "isActive": {
+                  "example": "any"
                 }
               }
             }
@@ -285,6 +291,76 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/categories/{id}": {
+      "put": {
+        "tags": [
+          "Categories"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "example": "any"
+                },
+                "description": {
+                  "example": "any"
+                },
+                "isActive": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Categories"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
@@ -317,7 +393,7 @@
       },
       "put": {
         "tags": [
-          "Books"
+          "Categories"
         ],
         "description": "",
         "parameters": [
@@ -333,28 +409,13 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
+                "name": {
                   "example": "any"
                 },
-                "author": {
+                "description": {
                   "example": "any"
                 },
-                "isbn": {
-                  "example": "any"
-                },
-                "publishYear": {
-                  "example": "any"
-                },
-                "genre": {
-                  "example": "any"
-                },
-                "pages": {
-                  "example": "any"
-                },
-                "price": {
-                  "example": "any"
-                },
-                "publisher": {
+                "isActive": {
                   "example": "any"
                 }
               }
@@ -375,7 +436,7 @@
       },
       "delete": {
         "tags": [
-          "Books"
+          "Categories"
         ],
         "description": "",
         "parameters": [
