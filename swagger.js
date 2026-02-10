@@ -5,7 +5,7 @@ const doc = {
       title: 'Book Library API',
       description: 'API for managing books and categories (W03 Project 2)'
    },
-   host: 'localhost:3000', // For Local Testing only; change to Render URL
+   host: 'cse-341-project2-7jea.onrender.com', // For Local Testing only; change to Render URL
    basePath: '/',
    schemes: ['http']
 };
