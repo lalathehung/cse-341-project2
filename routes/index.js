@@ -1,39 +1,22 @@
 const router = require('express').Router();
 const passport = require('passport');
 
-router.get('/logout', (req, res) => {
-   console.log('Logout requested. Session before:', req.session.user);
-
-   req.logout((err) => {
-      if (err) {
-         console.log('Logout error:', err);
-         return res.status(500).json({ error: 'Logout failed' });
-      }
-
-      req.session.destroy((err) => {
-         if (err) {
-            console.log('Session destroy error:', err);
-            return res.status(500).json({ error: 'Session destroy failed' });
-         }
-
-         res.clearCookie('connect.sid', { 
-            path: '/', 
-            httpOnly: true, 
-            secure: true,  
-            sameSite: 'none'
-         });
-         req.session = null;
-         console.log('Logout successful');
-         res.redirect('/');
-      });
-   });
-});
-
+// Root 
 router.get('/', (req, res) => {
-   res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out");
+    // Check
+    res.send(req.user !== undefined ? `Logged in as ${req.user.displayName || req.user.username}` : "Logged Out");
 });
 
+// Login
 router.get('/login', passport.authenticate('github'));
+
+// Logout 
+router.get('/logout', function (req, res, next) {
+    req.logout(function (err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+    });
+});
 
 router.use('/books', require('./books'));
 router.use('/categories', require('./categories'));
