@@ -2,7 +2,7 @@ const router = require('express').Router();
 const passport = require('passport');
 
 router.get('/logout', (req, res) => {
-   console.log('Logout requested. Session before:', req.session.user);  // debug
+   console.log('Logout requested. Session before:', req.session.user);
 
    req.logout((err) => {
       if (err) {
@@ -15,8 +15,15 @@ router.get('/logout', (req, res) => {
             console.log('Session destroy error:', err);
             return res.status(500).json({ error: 'Session destroy failed' });
          }
-         res.clearCookie('connect.sid');
-         console.log('Logout successful');  // debug
+
+         res.clearCookie('connect.sid', { 
+            path: '/', 
+            httpOnly: true, 
+            secure: process.env.NODE_ENV === 'production',  
+            sameSite: 'lax'
+         });
+         req.session = null;
+         console.log('Logout successful');
          res.redirect('/');
       });
    });
