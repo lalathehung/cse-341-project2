@@ -19,8 +19,8 @@ router.get('/logout', (req, res) => {
          res.clearCookie('connect.sid', { 
             path: '/', 
             httpOnly: true, 
-            secure: process.env.NODE_ENV === 'production',  
-            sameSite: 'lax'
+            secure: true,  
+            sameSite: 'none'
          });
          req.session = null;
          console.log('Logout successful');
