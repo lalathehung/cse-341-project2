@@ -34,6 +34,10 @@ app.use(cors({ methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']}))
 app.use(cors({ origin: '*'}))
 app.use('/', require('./routes/index.js'));
 
+console.log('GITHUB_CLIENT_ID:', process.env.GITHUB_CLIENT_ID || 'MISSING');
+console.log('GITHUB_CLIENT_SECRET:', process.env.GITHUB_CLIENT_SECRET ? 'SET (hidden for security)' : 'MISSING');
+console.log('CALLBACK_URL:', process.env.CALLBACK_URL || 'MISSING');
+
 passport.use(new GitHubStrategy({
     clientID: process.env.GITHUB_CLIENT_ID,
     clientSecret: process.env.GITHUB_CLIENT_SECRET,
